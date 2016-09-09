@@ -1,4 +1,4 @@
-package br.com.paulo.exercicio;
+package br.com.paulo.agenda;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package br.com.paulo.exercicio;
+package br.com.paulo.agenda;
 
 import org.junit.Test;
 

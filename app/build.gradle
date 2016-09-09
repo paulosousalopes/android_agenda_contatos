@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.2"
 
     defaultConfig {
-        applicationId "br.com.paulo.exercicio"
+        applicationId "br.com.paulo.angenda"
         minSdkVersion 21
         targetSdkVersion 24
         versionCode 1
