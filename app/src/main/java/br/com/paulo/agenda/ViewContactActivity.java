@@ -2,6 +2,7 @@ package br.com.paulo.agenda;
 
 import android.Manifest;
 import android.content.Intent;
+
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -15,6 +16,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.view.View;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +34,7 @@ import android.widget.Toast;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
 
 import br.com.paulo.agenda.R;
 
@@ -35,16 +48,17 @@ public class ViewContactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_contact);
         getExtra();
 
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
         eventBus.register(this);
         final TextView textViewEmail = (TextView) findViewById(R.id.textViewEmailContact);
         final TextView textViewPhone = (TextView) findViewById(R.id.textViewPhoneContact);
         final Button buttonShare = (Button) findViewById(R.id.buttonShare);
+
 
         textViewEmail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +92,7 @@ public class ViewContactActivity extends AppCompatActivity {
                 }
             }
         });
+
 
         buttonShare.setOnClickListener(new View.OnClickListener() {
             @Override

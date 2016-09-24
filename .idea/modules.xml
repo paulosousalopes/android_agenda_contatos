@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/android_agenda_contatos-master.iml" filepath="$PROJECT_DIR$/android_agenda_contatos-master.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/android_agenda_contatos.iml" filepath="$PROJECT_DIR$/android_agenda_contatos.iml" />
+>>>>>>> 61dc1f9a31de2d29a58c49bd7b3e1bdc44330260
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

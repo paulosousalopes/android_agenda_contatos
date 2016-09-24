@@ -1,6 +1,7 @@
 package br.com.paulo.agenda;
 
 import android.content.Intent;
+
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
@@ -9,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
     private static final String PREF_NAME = "preferencia";
     private SharedPreferences sharedPreferences;
 
-
     Bundle extras = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -48,12 +50,16 @@ public class MainActivity extends AppCompatActivity {
                     .setMessage("Thanks for using this app")
                     .show();
         }
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
         eventBus.register(this);
+
+
 
         TextView textViewTakePicture = (TextView) findViewById(R.id.textViewTakePicture);
 
@@ -84,14 +90,13 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
 
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             this.extras = data.getExtras();
-            releaseCameraAndPreview();
+
             //Bitmap imageBitmap = (Bitmap) extras.get("data");
 
             //ImageView mImageView = (ImageView) findViewById(R.id.imageView);
@@ -128,7 +133,11 @@ public class MainActivity extends AppCompatActivity {
         Intent viewContactIntent = new Intent(getApplicationContext(), ViewContactActivity.class);
 
         eventBus.postSticky(new Pessoa(name, null, email, phone, 20));
-        viewContactIntent.putExtras(extras);
+
+        extras.putString("name", editTextName.getText().toString());
+        extras.putString("email", editTextEmail.getText().toString());
+        extras.putString("phone", editTextPhone.getText().toString());
+        Intent viewContactIntent = new Intent(getApplicationContext(), ViewContactActivity.class);
 
         startActivity(viewContactIntent);
     }
