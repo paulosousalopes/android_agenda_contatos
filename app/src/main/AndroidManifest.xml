@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="br.com.paulo.agenda.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +22,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.com.paulo.agenda.ViewContactActivity"
-            android:parentActivityName="br.com.paulo.agenda.MainActivity" />
+            android:name=".ViewContactActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".PessoaRecyclerViewActivity"></activity>
     </application>
 
 </manifest>

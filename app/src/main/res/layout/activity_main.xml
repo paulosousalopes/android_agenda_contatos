@@ -68,6 +68,11 @@
         android:onClick="saveContact"/>
 
     <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RECYCLERVIEW"
+            android:id="@+id/buttonRecycler" />
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/delete"

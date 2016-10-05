@@ -47,7 +47,6 @@ public class ViewContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_contact);
         getExtra();
-
     }
 
     @Override
@@ -98,7 +97,7 @@ public class ViewContactActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent sendItent = new Intent();
-                TextView textViewName      = (TextView) findViewById(R.id.textViewNameContact);
+                TextView textViewName  = (TextView) findViewById(R.id.textViewNameContact);
                 TextView textViewPhone = (TextView) findViewById(R.id.textViewPhoneContact);
 
                 String name = String.valueOf(textViewName.getText());
@@ -126,33 +125,16 @@ public class ViewContactActivity extends AppCompatActivity {
         // Atribui valores para o atributo Text dos componentes
         textViewName.setText(p.getName());
         textViewEmail.setText(p.getEmail());
-        textViewPhone.setText(p.getTelefone());
+        textViewPhone.setText(p.getPhone());
 
     }
 
     private void getExtra() {
         Bundle bundle = getIntent().getExtras();
-
         if (bundle != null) {
-            // Atribui os valores recebidos pelo bundle para variáveis locais
-            String name  = bundle.getString("name");
-            String email = bundle.getString("email");
-            String phone = bundle.getString("phone");
-            //byte[] picture = bundle.getByteArray("pictureData");
-
             //Recupera a imagem que foi adicionada ao Bundle no método onActivityResult
             Bitmap imageBitmap = (Bitmap) bundle.get("data");
-
-//            TextView textViewName      = (TextView) findViewById(R.id.textViewNameContact);
-//            TextView textViewEmail     = (TextView) findViewById(R.id.textViewEmailContact);
-//            TextView textViewPhone     = (TextView) findViewById(R.id.textViewPhoneContact);
             ImageView imageViewPicture = (ImageView) findViewById(R.id.imageView);
-
-//            // Atribui valores para o atributo Text dos componentes
-//            textViewName.setText(name);
-//            textViewEmail.setText(email);
-//            textViewPhone.setText(phone);
-
             imageViewPicture.setImageBitmap(imageBitmap);
 
         }
